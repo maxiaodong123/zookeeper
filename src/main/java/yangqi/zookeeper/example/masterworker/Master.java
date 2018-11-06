@@ -63,7 +63,7 @@ public class Master implements Watcher, Runnable {
         try {
             zk.create(MASTER_PATH, serverId.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE,
                                         CreateMode.EPHEMERAL);
-        } catch (KeeperException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -75,7 +75,7 @@ public class Master implements Watcher, Runnable {
         try {
             data = zk.getData(MASTER_PATH, false, stat);
             return serverId.equals(new String(data));
-        } catch (KeeperException | InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
