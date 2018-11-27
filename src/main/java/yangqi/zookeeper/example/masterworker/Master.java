@@ -129,7 +129,6 @@ public class Master implements Watcher, Runnable {
         for (int i = 0; i < masterCount; i++) {
             Master master = new Master("localhost:2181", "o2-" + i);
             service.submit(master);
-            System.out.println("12312412412412");
         }
 
 
